@@ -34,25 +34,20 @@ import java.awt.*;
 
 public class FifteenPuzzle extends JFrame {
 
-    // Skapar referenser för spelfältet och "nyspelhanteraren".
     private final GameGrid gameGrid;
     private final NewGameHandler newGameHandler;
 
-    // Konstruktor för FifteenPuzzle som sätter upp fönster och spelplan.
     public FifteenPuzzle() {
 
-        // Settings.
         setTitle("15-Puzzle");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600, 600);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-        // Förbereder spelplan och "nyspelshanteraren"
         gameGrid = new GameGrid();
         newGameHandler = new NewGameHandler(gameGrid);
 
-        // Mitten av skärmen.
         add(gameGrid.getGameGridPanel(), BorderLayout.CENTER);
 
         JButton newGameButton = new JButton("Start New Game");
