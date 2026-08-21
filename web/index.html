@@ -35,6 +35,13 @@
       <footer class="controls">
         <button class="primary-button" id="new-game-button" type="button">New Solvable Game</button>
       </footer>
+
+      <p class="info-note">
+        <strong>Why every shuffle is solvable:</strong> each new game starts from the
+        solved board and applies hundreds of random legal slides (never immediately
+        undoing the last move). Since every move is reversible, the board can always
+        be slid back to the solved state, so an unsolvable position never occurs.
+      </p>
     </main>
 
     <div class="win-banner" id="win-banner" hidden>

@@ -94,6 +94,8 @@ select {
 .goal-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  aspect-ratio: 1;
   gap: 0.4rem;
   margin-top: 0.75rem;
 }
@@ -101,9 +103,8 @@ select {
 .goal-tile {
   display: grid;
   place-items: center;
-  min-height: 2.25rem;
   border-radius: 0.75rem;
-  font-size: 1rem;
+  font-size: 0.85rem;
   font-weight: 700;
   background: var(--tile-background);
   color: #fff;
@@ -166,7 +167,7 @@ h1 {
 }
 
 .board-shell {
-  width: min(100%, 42rem);
+  width: min(100%, 32rem);
   margin: 0 auto;
   aspect-ratio: 1;
 }
@@ -249,6 +250,21 @@ h1 {
 
 .primary-button:active {
   transform: translateY(0);
+}
+
+.info-note {
+  margin: 1rem 0 0;
+  padding: 0.9rem 1.1rem;
+  border-radius: var(--radius-md);
+  background: rgba(15, 118, 138, 0.08);
+  border: 1px solid rgba(15, 118, 138, 0.18);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--status-text);
+}
+
+.info-note strong {
+  color: var(--title-text);
 }
 
 .win-banner {
