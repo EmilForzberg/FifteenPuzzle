@@ -4,12 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>15 Puzzle</title>
-  <script type="module" crossorigin src="./assets/index-DHvEbXGs.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-BWpo96VQ.css">
+  <script type="module" crossorigin src="./assets/index-Bvfx2XaE.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BFUjJ5Vi.css">
 </head>
 <body>
   <div class="page-shell">
-    <main class="app-card">
+    <section class="front-page" id="front-page">
+      <p class="eyebrow">Play Online</p>
+      <h1>15 Puzzle</h1>
+      <div class="front-banner">
+        <div class="front-banner-grid" id="front-goal-grid"></div>
+      </div>
+      <p class="subtitle">Slide tiles into place. Every shuffle is solvable.</p>
+      <button class="primary-button start-button" id="start-game-button" type="button">Start Game</button>
+    </section>
+
+    <main class="app-card" id="app-card" hidden>
       <header class="hero">
         <section class="goal-card" aria-label="Solved puzzle preview">
           <p class="eyebrow">Goal</p>
