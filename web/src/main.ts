@@ -27,6 +27,10 @@ type CellRect = {
 };
 
 type Elements = {
+  frontPage: HTMLElement;
+  frontGoalGrid: HTMLDivElement;
+  startGameButton: HTMLButtonElement;
+  appCard: HTMLElement;
   board: HTMLDivElement;
   goalGrid: HTMLDivElement;
   moveCount: HTMLParagraphElement;
@@ -43,6 +47,10 @@ const state: State = {
 };
 
 const elements: Elements = {
+  frontPage: requireElement<HTMLElement>("front-page"),
+  frontGoalGrid: requireElement<HTMLDivElement>("front-goal-grid"),
+  startGameButton: requireElement<HTMLButtonElement>("start-game-button"),
+  appCard: requireElement<HTMLElement>("app-card"),
   board: requireElement<HTMLDivElement>("board"),
   goalGrid: requireElement<HTMLDivElement>("goal-grid"),
   moveCount: requireElement<HTMLParagraphElement>("move-count"),
@@ -61,13 +69,14 @@ function initialize(): void {
   emptySlot.className = "tile empty-slot";
   emptySlot.setAttribute("aria-hidden", "true");
 
-  buildGoalGrid();
+  buildGoalGrid(elements.goalGrid);
+  buildGoalGrid(elements.frontGoalGrid);
   buildBoard();
   bindEvents();
-  startNewGame();
 }
 
 function bindEvents(): void {
+  elements.startGameButton.addEventListener("click", handleStartGame);
   elements.newGameButton.addEventListener("click", startNewGame);
   elements.playAgainButton.addEventListener("click", () => {
     hideWinBanner();
@@ -76,14 +85,20 @@ function bindEvents(): void {
   window.addEventListener("resize", () => positionTiles(false));
 }
 
-function buildGoalGrid(): void {
+function handleStartGame(): void {
+  elements.frontPage.hidden = true;
+  elements.appCard.hidden = false;
+  startNewGame();
+}
+
+function buildGoalGrid(container: HTMLDivElement): void {
   const goalTiles = createSolvedTiles();
 
   goalTiles.forEach((value) => {
     const tile = document.createElement("div");
     tile.className = value === 0 ? "goal-tile empty" : "goal-tile";
     tile.textContent = value === 0 ? "" : String(value);
-    elements.goalGrid.appendChild(tile);
+    container.appendChild(tile);
   });
 }
 
